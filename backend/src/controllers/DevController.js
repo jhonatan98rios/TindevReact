@@ -1,7 +1,5 @@
 const axios = require('axios');
 const Dev = require('../models/Dev');
-const async = require('asyncawait/async');
-const await = require('asyncawait/await');
 
 module.exports = {
     async index(req, res){
