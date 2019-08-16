@@ -4,7 +4,6 @@ const DevSchema = new Schema({
     name: {
         type: String,
         required: true,
-
     },
     user: {
         type: String,
@@ -24,7 +23,7 @@ const DevSchema = new Schema({
         ref: 'Dev',
     }],
 }, {
-    timestamps: true, /* Cria um registro de croiaçao e ediçao dos dados */
+    timestamps: true, /* Cria um registro de criaçao e ediçao dos dados */
 });
 
 module.exports = model('Dev', DevSchema);

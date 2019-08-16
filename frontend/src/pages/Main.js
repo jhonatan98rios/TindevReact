@@ -19,20 +19,24 @@ export default function Main({ match }){
                     user: match.params.id
                 }
             });
-
             setUsers(response.data);
-
         }   
 
         loadUsers();
     }, [match.params.id]);
 
     async function handleLike(id){
-        console.log('like', id)
+        console.log('like', id);
+
+        await api.post(`/devs/${id}/likes`, null, {
+            headers: { user: match.params.id }
+        })
+
+        setUsers(users.filter( user => user._id !== id ));
     }
 
     async function handleDislike(id){
-        await api.post(` /dev/${id}/dislikes`, null, {
+        await api.post(`/devs/${id}/dislikes`, null, {
             headers: { user: match.params.id }
         })
 
